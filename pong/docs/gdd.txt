@@ -1,0 +1,15 @@
+# Pong
+
+### Game Summary
+
+Play against an AI in a classic game of Pong. Be the first to score three goals against your opponent and win!
+
+### Game outline
+
+Each player controls a paddle. The player ries to prevent the ball from going past them while simultaneously trying to make the ball go past their opponent.
+
+### Unique Selling Points
+
+- Fast paced action
+- Easy to understand
+- Easy to play 

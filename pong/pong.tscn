@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3fqsgrgedl1w"]
+
+[ext_resource type="Texture2D" uid="uid://bvhw371sqshl5" path="res://pong/assets/pong_concept.png" id="1_oumu0"]
+
+[node name="Pong" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oumu0")
+centered = false
