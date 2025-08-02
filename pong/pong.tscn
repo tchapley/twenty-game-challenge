@@ -1,17 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3fqsgrgedl1w"]
+[gd_scene load_steps=10 format=3 uid="uid://d3fqsgrgedl1w"]
 
 [ext_resource type="Texture2D" uid="uid://b3dlsqllth46a" path="res://pong/assets/pong_background.png" id="1_oumu0"]
 [ext_resource type="Texture2D" uid="uid://dw1rs37m4sa5q" path="res://pong/assets/pong_sprites.png" id="2_f7obv"]
 [ext_resource type="Texture2D" uid="uid://bebmkqyjr6ko8" path="res://pong/assets/pong_paddle.png" id="3_1hw3o"]
+[ext_resource type="Script" uid="uid://c2nrkt1031fmh" path="res://pong/paddle.gd" id="3_g8uh0"]
+[ext_resource type="Script" uid="uid://br0upa0p4rwka" path="res://pong/scripts/ball.gd" id="5_fif4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oumu0"]
 size = Vector2(320, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8uh0"]
-size = Vector2(4, 40)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fif4v"]
+radius = 1.6
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_teprw"]
+radius = 1.60001
+height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fif4v"]
-radius = 4.0
+radius = 3.0
 
 [node name="Pong" type="Node"]
 
@@ -120,27 +127,32 @@ shape = SubResource("RectangleShape2D_oumu0")
 
 [node name="PlayerOnePaddle" type="CharacterBody2D" parent="."]
 position = Vector2(16, 48)
+scale = Vector2(1.25, 1.25)
+script = ExtResource("3_g8uh0")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerOnePaddle"]
 texture = ExtResource("3_1hw3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOnePaddle"]
-shape = SubResource("RectangleShape2D_g8uh0")
+shape = SubResource("CapsuleShape2D_fif4v")
 
 [node name="PlayerTwoPaddle" type="CharacterBody2D" parent="."]
 position = Vector2(304, 80)
+scale = Vector2(1.25, 1.25)
+script = ExtResource("3_g8uh0")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerTwoPaddle"]
 texture = ExtResource("3_1hw3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwoPaddle"]
-shape = SubResource("RectangleShape2D_g8uh0")
+shape = SubResource("CapsuleShape2D_teprw")
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Ball" type="CharacterBody2D" parent="."]
 position = Vector2(177, 83)
-gravity_scale = 0.0
+script = ExtResource("5_fif4v")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_f7obv")
 hframes = 3
 frame = 2
